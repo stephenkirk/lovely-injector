@@ -17,18 +17,24 @@ Lovely is a lua injector which embeds code into a [LÖVE 2d](https://love2d.org/
 ### Mac
 
 1. Download the [latest release](https://github.com/ethangreen-dev/lovely-injector/releases) for Mac. If you have an M-series CPU (M1, M2, etc.) then this will be `lovely-aarch64-apple-darwin.tar.gz`. If you have an Intel CPU then it will be `lovely-x86_64-apple-darwin.tar.gz`
-2. Open the .zip archive, copy `liblovely.dylib`, `setup_lovely_macos.sh`, and `run_lovely_macos.sh` into the game directory. You can navigate to the game's directory by right-clicking the game in Steam, hovering "Manage", and selecting "Browse local files".
-3. Put one or more mods into the Mac mod directory (NOT the same as the game directory). This should be `/Users/$USER/Library/Application Support/Balatro/Mods` where `$USER` is your username (if you are modding Balatro).\
-If you can't find this folder, try pressing `Shift-Command-.` (period) to show hidden files in Finder.
-4. Run the setup script in the Balatro directory by opening Terminal.app and executing:
+2. Extract the archive to a folder of your choice.
+3. Run the setup script by opening Terminal.app and executing:
 ```bash
-cd ~/Library/Application\ Support/Steam/steamapps/common/Balatro
+cd /path/to/extracted/folder
 chmod +x setup_lovely_macos.sh
 ./setup_lovely_macos.sh
 ```
-This will remove the quarantine attribute from `liblovely.dylib` and ask you if you want to set up a shell alias so you can launch the game by typing `balatro` in your terminal.
+4. The setup script will:
+   - Remove the quarantine attribute from `liblovely.dylib`
+   - Let you select which game to install for (currently supporting Balatro)
+   - Create the necessary mod directory if it doesn't exist
+   - Prompt you to set up a shell alias for easy game launching
 
-5. After running the setup script, you can launch the game by typing `balatro` in any terminal window, or by executing `sh run_lovely_macos.sh` in the terminal within the game directory. Note: You cannot run your game through Steam on Mac due to a bug within the Steam client.
+5. After running the setup script, you can launch the game by:
+   - Using the shell alias (if you set one up) from any terminal window
+   - Executing `sh run_lovely_macos.sh` in the terminal from the extracted folder
+   
+Note: You cannot run your game through Steam on Mac due to a bug within the Steam client.
 
 **Important**: Mods with Lovely patch files (`lovely.toml` or in `lovely/*.toml`) **must** be installed into their own folder within the mod directory. No exceptions!
 
